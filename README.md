@@ -7,7 +7,6 @@
 * Update the DOM based on the mock server's response
 
 ## Introduction
-
 Remember when we started this exploration of the "Simple Liker" application?
 You might not have been sure that you would make it to this point, but you
 have. Right now you should have the information needed to create a basic web

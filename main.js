@@ -1,6 +1,32 @@
 // Defining text characters for the empty and full hearts for you to use later.
-const EMPTY_HEART = '♡'
-const FULL_HEART = '♥'
+const emptyHeart = document.querySelector('#empty-heart');
+const errorModal = document.querySelector('#error-modal');
+
+emptyHeart.addEventListener('click', () => {
+  mimicServerCall()
+    .then(() => {
+      // Change the heart to a full heart and add the .activated-heart class
+      emptyHeart.classList.add('activated-heart');
+    })
+    .catch(() => {
+      // Display the error modal and show the error message
+      errorModal.classList.remove('hidden');
+      errorModal.querySelector('.modal-message').textContent = 'Server error. Please try again.';
+
+      // Hide the error modal after 3 seconds
+      setTimeout(() => {
+        errorModal.classList.add('hidden');
+      }, 3000);
+    });
+});
+
+const fullHeart = document.querySelector('#full-heart');
+
+fullHeart.addEventListener('click', () => {
+  // Change the heart back to an empty heart and remove the .activated-heart class
+  fullHeart.classList.remove('activated-heart');
+});
+
 
 // Your JavaScript code goes here!
 
